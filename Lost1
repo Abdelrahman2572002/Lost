@@ -1,0 +1,99 @@
+import 'package:flutter/material.dart';
+void main(){
+  runApp(MyApp());
+}
+class MyApp extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return MyAppState();
+  }
+}
+class MyAppState extends State<MyApp> {
+  bool passwordvisible = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text("Lost"),
+          ),
+          body: Container(
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 40),
+                  Container(
+                      margin: EdgeInsets.all(8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          labelText: "Name",
+                          labelStyle: TextStyle(fontSize: 30),
+                          hintText: "Enter Name",
+                          hintStyle: TextStyle(fontSize: 20),
+                          icon: Icon(Icons.person_outline),
+                        ),
+                        keyboardType: TextInputType.text,
+                      )
+                  ),
+                  Container(
+                      margin: EdgeInsets.all(8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          labelText: "Email",
+                          labelStyle: TextStyle(fontSize: 30),
+                          hintText: "Enter Email",
+                          hintStyle: TextStyle(fontSize: 20),
+                          icon: Icon(Icons.alternate_email),
+                        ),
+                        keyboardType: TextInputType.emailAddress,
+                      )
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(8.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: "Password",
+                          labelStyle: TextStyle(fontSize: 30),
+                          hintText: "Enter Password",
+                          hintStyle: TextStyle(fontSize: 20),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                                passwordvisible ? Icons.visibility : Icons
+                                    .visibility_off
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                passwordvisible = !passwordvisible;
+                              });
+                            },
+                          )
+                      ),
+                      keyboardType: TextInputType.visiblePassword,
+                      obscureText: passwordvisible,
+                    ),
+                  ),
+                  Container(
+                      margin: EdgeInsets.all(8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            labelText: "Phone Number",
+                            labelStyle: TextStyle(fontSize: 30),
+                            hintText: "Enter Phone",
+                            hintStyle: TextStyle(fontSize: 20),
+                            icon: Icon(Icons.phone, color: Colors.blue,)
+                        ),
+                        keyboardType: TextInputType.number,
+                      )
+                  ),
+                  SizedBox(height: 20),
+                ],
+              ),
+            ),
+          )
+      ),
+    );
+  }
+}
+        
+ 
